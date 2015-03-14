@@ -10,20 +10,24 @@ namespace SMokaEngine
 
         public Application(Context context)
 		{
-            Context = context;
-            Context.Application = this;
+			Context = context;
+			Context.App = this;
+
+			// create sub engines, this is done so the client can set some preferences before the engine starts.
+			Display = new Display(this);
+			Core = new Core(this);
 		}
 
 		public void SetDisplay(String title, int width, int height)
 		{
-            Display = new Display(title, width, height);
+			Display.Create(title, width, height);
 		}
 
 		public void Start(float frameCap)
 		{
-            Core = new Core(this, 1.0f / frameCap);
+			Core.Create(frameCap);
 
-            Display.Create();
+			Display.Start();
 			Core.Start();
 		}
 	}

@@ -43,6 +43,7 @@
     <Compile Include="src\core\Context.cs" />
     <Compile Include="src\core\Core.cs" />
     <Compile Include="src\MyGame.cs" />
+    <Compile Include="src\core\SubEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />

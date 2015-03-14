@@ -2,16 +2,16 @@
 
 namespace SMokaEngine
 {
-	public class Core
+	public class Core : SubEngine
 	{
 		public bool Running { get; private set; }
+        
+		float frameTime;
 
-		private Application app;
-        private float frameTime;
+		public Core(Application application) : base(application) {}
 
-        public Core(Application app, float frameTime)
+        public void Create(float frameTime)
         {
-            this.app = app;
             this.frameTime = frameTime;
         }
 
@@ -28,7 +28,6 @@ namespace SMokaEngine
 		{
 
 		}
-
 	}
 }
 

@@ -2,24 +2,28 @@
 
 namespace SMokaEngine
 {
-    public abstract class Context
+	public abstract class Context
     {
-        Application application;
-        public Application Application
-        {
-            private get
-            {
-                return application;
-            }
+		private Application application;
+		public Application App
+		{
+			get
+			{
+				return application;
+			}
 
-            set
-            {
-                if (application == null)
-                {
-                    application = value;
-                }
-            }
-        }
+			set
+			{
+				if (application == null)
+				{
+					application = value;
+				}
+				else
+				{
+					throw new SMokaException("Application is already set.");
+				}
+			}
+		}
 
         public abstract void Create();
         public abstract void Update();
