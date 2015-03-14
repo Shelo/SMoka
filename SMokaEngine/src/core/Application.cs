@@ -13,7 +13,8 @@ namespace SMokaEngine
 			Context = context;
 			Context.App = this;
 
-			// create sub engines, this is done so the client can set some preferences before the engine starts.
+			// create sub engines, this is done so the client can set some preferences before the
+			// engine starts.
 			Display = new Display(this);
 			Core = new Core(this);
 		}

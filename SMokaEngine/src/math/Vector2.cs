@@ -47,6 +47,13 @@ namespace SMokaEngine
             return new Vector2(x / len, y / len);
         }
 
+		public Vector2 Add(float x, float y)
+		{
+			this.x += x;
+			this.y += y;
+			return this;
+		}
+
         public static Vector2 operator +(Vector2 t, Vector2 o)
         {
             return new Vector2(t.x + o.x, t.y + o.y);
