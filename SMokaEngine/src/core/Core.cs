@@ -28,6 +28,11 @@ namespace SMokaEngine
 		{
 
 		}
+
+		public override void Stop()
+		{
+
+		}
 	}
 }
 

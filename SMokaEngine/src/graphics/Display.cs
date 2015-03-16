@@ -42,6 +42,11 @@ namespace SMokaEngine
 			GLFW.SwapBuffers(window);
 			GLFW.PollEvents();
 		}
+
+		public override void Stop()
+		{
+
+		}
     }
 }
 

@@ -2,7 +2,6 @@ using System;
 
 namespace SMokaEngine
 {
-
 	public class Transform
 	{
 		private readonly Entity entity;
