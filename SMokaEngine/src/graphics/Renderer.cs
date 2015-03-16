@@ -25,6 +25,11 @@ namespace SMokaEngine
 			Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE_MINUS_SRC_ALPHA);
 		}
 
+		public void Render()
+		{
+
+		}
+
 		public override void Stop()
 		{
 

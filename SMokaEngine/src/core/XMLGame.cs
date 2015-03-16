@@ -14,7 +14,7 @@ namespace SMokaEngine
 
         }
 
-        public override void Update()
+        public override void Stop()
         {
 
         }
