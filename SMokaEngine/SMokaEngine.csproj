@@ -48,7 +48,8 @@
     <Compile Include="src\core\SMokaException.cs" />
     <Compile Include="src\graphics\Texture.cs" />
     <Compile Include="src\core\Resources.cs" />
-    <Compile Include="src\core\BaseGame.cs" />
+    <Compile Include="src\core\Transform.cs" />
+    <Compile Include="src\core\SMokaLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
@@ -58,5 +59,11 @@
     <Reference Include="Tao.OpenGl, Version=2.1.0.12, Culture=neutral, PublicKeyToken=1ca010269a4501ef" />
     <Reference Include="System.Drawing" />
     <Reference Include="Tao.DevIl, Version=1.6.8.3, Culture=neutral, PublicKeyToken=7ec4053013524957" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThirdParty\FreeImage\FreeImage.csproj">
+      <Project>{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}</Project>
+      <Name>FreeImage</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

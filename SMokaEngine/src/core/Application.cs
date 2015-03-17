@@ -21,7 +21,7 @@ namespace SMokaEngine
 			Core = new Core(this);
 		}
 
-		public void SetDisplay(String title, int width, int height)
+		public void SetDisplay(string title, int width, int height)
 		{
 			Display.Create(title, width, height);
 		}

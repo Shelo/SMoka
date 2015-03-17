@@ -31,13 +31,8 @@ namespace SMokaEngine
 		{
 			get
 			{
-				entity.Transform;
+				return entity.Transform;
 			}
-		}
-
-		public T GetComponent<T>()
-		{
-			return (T) null;
 		}
 
 		public virtual void OnCreate()

@@ -12,15 +12,20 @@ namespace SMokaEngine
 
         public void Create(float frameTime)
         {
-            this.frameTime = frameTime;
+			this.frameTime = frameTime;
         }
 
 		public void Start()
 		{
 			if (!Running)
 			{
-				Running = false;
+				Running = true;
+				App.Context.Create();
 				Run();
+			}
+			else
+			{
+				throw new SMokaException("Application is already running.");
 			}
 		}
 

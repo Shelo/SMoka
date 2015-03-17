@@ -4,6 +4,8 @@ namespace SMokaEngine
 {
 	public class Display : SubEngine
     {
+		private const string TAG = "Display";
+
         public string Title { get; set; }
 		public int Width { get; private set; }
 		public int Height { get; private set; }
@@ -12,7 +14,7 @@ namespace SMokaEngine
 
 		public Display(Application application) : base(application) {}
 
-		public void Create(String title, int width, int height)
+		public void Create(string title, int width, int height)
 		{
 			Title = title;
 			Width = width;
@@ -20,21 +22,23 @@ namespace SMokaEngine
 
 			GLFW.Init();
 
-            GLFW.WindowHint(GLFW.SAMPLES, 4);
-            GLFW.WindowHint(GLFW.CONTEXT_VERSION_MAJOR, 3);
-            GLFW.WindowHint(GLFW.CONTEXT_VERSION_MINOR, 3);
-            GLFW.WindowHint(GLFW.OPENGL_PROFILE, GLFW.OPENGL_CORE_PROFILE);
+			GLFW.WindowHint(GLFW.SAMPLES, 4);
+//			GLFW.WindowHint(GLFW.CONTEXT_VERSION_MINOR, 3);
+//			GLFW.WindowHint(GLFW.CONTEXT_VERSION_MAJOR, 3);
+//			GLFW.WindowHint(GLFW.OPENGL_PROFILE, GLFW.OPENGL_CORE_PROFILE);
 
             window = GLFW.CreateWindow(width, height, Title, GLFW.Monitor.Null, GLFW.Window.Null);
+
+			SMokaLog.O(TAG, "Created.");
         }
 
 		public void Start()
 		{
-			GLFW.VidMode mode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
-			Console.WriteLine(mode.width);
-
+//			GLFW.VidMode mode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
 			GLFW.MakeContextCurrent(window);
 			GLFW.ShowWindow(window);
+
+			SMokaLog.O(TAG, "Started.");
 		}
 
 		public void Update()

@@ -25,11 +25,6 @@ namespace SMokaEngine
 			}
 		}
 
-		public void Stop()
-		{
-
-		}
-
         public abstract void Create();
         public abstract void Stop();
     }

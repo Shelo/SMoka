@@ -1,0 +1,3 @@
+C:\Users\Shelo\Git\smoka-engine\ThirdParty\FreeImage\bin\Release\FreeImageNET.XML
+C:\Users\Shelo\Git\smoka-engine\ThirdParty\FreeImage\bin\Release\FreeImageNET.dll
+C:\Users\Shelo\Git\smoka-engine\ThirdParty\FreeImage\obj\x86\Release\FreeImageNET.dll
