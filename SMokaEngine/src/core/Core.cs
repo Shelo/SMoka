@@ -20,7 +20,7 @@ namespace SMokaEngine
 			if (!Running)
 			{
 				Running = true;
-				App.Context.Create();
+				Context.Create();
 				Run();
 			}
 			else

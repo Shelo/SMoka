@@ -5,10 +5,17 @@ namespace SMokaEngine
 {
 	public class Sprite : Component
 	{
-		private Texture texture;
-		public Sprite()
-		{
+		public Texture Texture { get; private set; }
 
+		public Sprite(string filePath)
+		{
+			Texture = new Texture(filePath);
+		}
+
+		public void Render()
+		{
+			Texture.Bind();
+			// TODO: more rendering.
 		}
 	}
 }

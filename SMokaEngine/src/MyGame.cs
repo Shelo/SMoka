@@ -7,7 +7,8 @@ namespace SMokaEngine
 	{
 		public override void Create()
 		{
-			Texture texture = new Texture("res/moka.png");
+			Entity entity = newEntity();
+			entity.AddComponent(new Sprite("res/moka.png"));
 		}
 
 		public override void Stop()
@@ -20,6 +21,10 @@ namespace SMokaEngine
 			SMokaLog.SharedTag = "SMokaEngine";
 
 			var app = new Application(new MyGame());
+
+			/* here the client could set some values to the engine.
+			*/
+
 			app.SetDisplay("Game Title", 800, 600);
 			app.Start(60.0f);
 			return 0;

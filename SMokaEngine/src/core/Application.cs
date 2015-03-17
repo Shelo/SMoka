@@ -4,6 +4,7 @@ namespace SMokaEngine
 {
 	public class Application
 	{
+		public Resources Resources { get; private set; }
 		public Renderer Renderer { get; private set; }
         public Context Context { get; private set; }
 		public Display Display { get; private set; }
@@ -16,6 +17,7 @@ namespace SMokaEngine
 
 			// create sub engines, this is done so the client can set some preferences before the
 			// engine starts.
+			Resources = new Resources(this);
 			Renderer = new Renderer(this);
 			Display = new Display(this);
 			Core = new Core(this);

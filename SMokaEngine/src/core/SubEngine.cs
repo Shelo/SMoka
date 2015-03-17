@@ -8,11 +8,44 @@ namespace SMokaEngine
 	public abstract class SubEngine
 	{
 		private readonly Application application;
-		public Application App
+
+		public Core Core
 		{
 			get
 			{
-				return application;
+				return application.Core;
+			}
+		}
+
+		public Resources Resources
+		{
+			get
+			{
+				return application.Resources;
+			}
+		}
+
+		public Context Context
+		{
+			get
+			{
+				return application.Context;
+			}
+		}
+
+		public Renderer Renderer
+		{
+			get
+			{
+				return application.Renderer;
+			}
+		}
+
+		public Display Display
+		{
+			get
+			{
+				return application.Display;
 			}
 		}
 

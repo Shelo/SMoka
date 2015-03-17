@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SMokaEngine
 {
 	public class Entity
 	{
+		private List<Component> components = new List<Component>();
+
 		private Transform transform;
 		public Transform Transform
 		{
@@ -25,9 +28,17 @@ namespace SMokaEngine
 			}
 		}
 
-		public Entity()
-		{
+		public string Name { get; private set; }
 
+		public Entity(string name)
+		{
+			Name = name;
+		}
+
+		public Entity AddComponent(Component component)
+		{
+			components.Add(component);
+			return this;
 		}
 	}
 }

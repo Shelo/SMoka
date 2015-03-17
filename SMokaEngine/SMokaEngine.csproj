@@ -39,17 +39,17 @@
     <Compile Include="src\graphics\Renderer.cs" />
     <Compile Include="src\core\Application.cs" />
     <Compile Include="src\core\Context.cs" />
-    <Compile Include="src\core\Core.cs" />
     <Compile Include="src\MyGame.cs" />
     <Compile Include="src\core\SubEngine.cs" />
     <Compile Include="src\components\Sprite.cs" />
     <Compile Include="src\core\Component.cs" />
     <Compile Include="src\core\Entity.cs" />
     <Compile Include="src\core\SMokaException.cs" />
-    <Compile Include="src\graphics\Texture.cs" />
-    <Compile Include="src\core\Resources.cs" />
     <Compile Include="src\core\Transform.cs" />
     <Compile Include="src\core\SMokaLog.cs" />
+    <Compile Include="src\core\Core.cs" />
+    <Compile Include="src\core\Resources.cs" />
+    <Compile Include="src\graphics\Texture.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
