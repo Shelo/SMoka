@@ -1,14 +1,17 @@
 ﻿using System;
-using Tao.OpenGl;
 
 namespace SMokaEngine
 {
 	public class MyGame : Context
 	{
+		Mesh mesh;
+
 		public override void Create()
 		{
-			Entity entity = newEntity();
+			Entity entity = newEntity("MyEntity");
 			entity.AddComponent(new Sprite("res/moka.png"));
+
+			mesh = new Mesh(1, 1);
 		}
 
 		public override void Stop()

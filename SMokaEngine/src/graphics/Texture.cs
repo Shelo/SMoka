@@ -1,53 +1,45 @@
 ﻿using System;
-using Tao.OpenGl;
-using Tao.DevIl;
-using FreeImageAPI;
 using System.Drawing;
 using System.Drawing.Imaging;
+using Pencil.Gaming.Graphics;
 
 namespace SMokaEngine
 {
 	public class Texture
 	{
-		private uint id;
+		private int id;
 		public int Width { get; private set; }
 		public int Height { get; private set; }
 
 		public Texture(String filePath)
 		{
-			Gl.glGenTextures(1, out id);
-			Gl.glBindTexture(Gl.GL_TEXTURE_2D, id);
+			id = GL.GenTexture();
+			GL.BindTexture(TextureTarget.Texture2D, id);
 
-			/*
-			FREE_IMAGE_FORMAT format = FREE_IMAGE_FORMAT.FIF_UNKNOWN;
-			Bitmap bm =  FreeImage.LoadBitmap(filePath,
-				FREE_IMAGE_LOAD_FLAGS.DEFAULT, ref format);
-			*/
+			// set texture parameters when changing its dimensions.
+			GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter,
+				(int) TextureMinFilter.Nearest);
+			GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter,
+				(int) TextureMagFilter.Nearest);
 
-			var bitmap = (Bitmap) Image.FromFile(filePath);
+			var bitmap = new Bitmap(filePath);
 
 			Width = bitmap.Width;
 			Height = bitmap.Height;
 
 			var data = bitmap.LockBits(new Rectangle(0, 0, Width, Height), 
-				ImageLockMode.ReadOnly, PixelFormat.Format32bppRgb);
+				ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
-			Gl.glTexImage2D(Gl.GL_TEXTURE_2D, 0, Gl.GL_RGBA, Width, Height, 0,
-				Gl.GL_RGBA, Gl.GL_UNSIGNED_BYTE, data.Scan0);
-
-			Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_REPEAT);
-			Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_REPEAT);
-			Gl.glTexParameterf(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MIN_FILTER, Gl.GL_NEAREST);
-			Gl.glTexParameterf(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, Gl.GL_NEAREST);
+			GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, Width, Height, 0,
+				Pencil.Gaming.Graphics.PixelFormat.Rgba, PixelType.UnsignedByte, data.Scan0);
 
 			bitmap.UnlockBits(data);
-			bitmap.Dispose();
 		}
 
-		public void Bind(int unit = 0)
+		public void Bind(TextureUnit unit = TextureUnit.Texture0)
 		{
-			Gl.glActiveTexture(Gl.GL_TEXTURE0 + unit);
-			Gl.glBindTexture(Gl.GL_TEXTURE_2D, id);
+			GL.ActiveTexture(unit);
+			GL.BindTexture(TextureTarget.Texture2D, id);
 		}
 	}
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Tao.OpenGl;
+using Pencil.Gaming.Graphics;
 
 namespace SMokaEngine
 {
@@ -13,21 +13,21 @@ namespace SMokaEngine
 		public void Start()
 		{
 			// indicate the clear color.
-			Gl.glClearColor(0, 0, 0, 1);
+			GL.ClearColor(0, 0, 0, 1);
 
 			// indicate the front face, then cull the back face.
-			Gl.glFrontFace(Gl.GL_CW);
-			Gl.glEnable(Gl.GL_CULL_FACE);
-			Gl.glCullFace(Gl.GL_BACK);
+			GL.FrontFace(FrontFaceDirection.Cw);
+			GL.Enable(EnableCap.CullFace);
+			GL.CullFace(CullFaceMode.Back);
 
 			// enable alpha blending.
-			Gl.glEnable(Gl.GL_BLEND);
-			Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE_MINUS_SRC_ALPHA);
+			GL.Enable(EnableCap.Blend);
+			GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);
 		}
 
 		public void Render()
 		{
-
+			GL.Clear(ClearBufferMask.ColorBufferBit);
 		}
 
 		public override void Stop()

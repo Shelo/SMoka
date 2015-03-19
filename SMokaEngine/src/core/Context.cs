@@ -28,6 +28,16 @@ namespace SMokaEngine
 			}
 		}
 
+		public void Update()
+		{
+
+		}
+
+		public void Clean()
+		{
+
+		}
+
 		public Entity newEntity(string name)
 		{
 			var entity = new Entity(name);

@@ -1,16 +1,15 @@
 ﻿using System;
+using Pencil.Gaming;
 
 namespace SMokaEngine
 {
 	public class Display : SubEngine
     {
-		private const string TAG = "Display";
-
         public string Title { get; set; }
 		public int Width { get; private set; }
 		public int Height { get; private set; }
 
-		GLFW.Window window;
+		GlfwWindowPtr window;
 
 		public Display(Application application) : base(application) {}
 
@@ -20,31 +19,37 @@ namespace SMokaEngine
 			Width = width;
 			Height = height;
 
-			GLFW.Init();
+			Glfw.Init();
 
-			GLFW.WindowHint(GLFW.SAMPLES, 4);
-//			GLFW.WindowHint(GLFW.CONTEXT_VERSION_MINOR, 3);
-//			GLFW.WindowHint(GLFW.CONTEXT_VERSION_MAJOR, 3);
-//			GLFW.WindowHint(GLFW.OPENGL_PROFILE, GLFW.OPENGL_CORE_PROFILE);
+			Glfw.WindowHint(WindowHint.Samples, 4);
+			Glfw.WindowHint(WindowHint.ContextVersionMinor, 3);
+			Glfw.WindowHint(WindowHint.ContextVersionMajor, 3);
+			Glfw.WindowHint(WindowHint.OpenGLProfile, (int) OpenGLProfile.Core);
 
-            window = GLFW.CreateWindow(width, height, Title, GLFW.Monitor.Null, GLFW.Window.Null);
+			window = Glfw.CreateWindow(width, height, Title, GlfwMonitorPtr.Null, GlfwWindowPtr.Null);
+			Glfw.MakeContextCurrent(window);
 
-			SMokaLog.O(TAG, "Created.");
+			// Show engine status.
+			SMokaLog.O(Application.TAG, "Display Created.");
         }
 
 		public void Start()
 		{
 //			GLFW.VidMode mode = GLFW.GetVideoMode(GLFW.GetPrimaryMonitor());
-			GLFW.MakeContextCurrent(window);
-			GLFW.ShowWindow(window);
+			Glfw.ShowWindow(window);
 
-			SMokaLog.O(TAG, "Started.");
+			SMokaLog.O(Application.TAG, "Display Started.");
 		}
 
 		public void Update()
 		{
-			GLFW.SwapBuffers(window);
-			GLFW.PollEvents();
+			Glfw.SwapBuffers(window);
+			Glfw.PollEvents();
+		}
+
+		public bool IsCloseRequested()
+		{
+			return Glfw.WindowShouldClose(window);
 		}
 
 		public override void Stop()

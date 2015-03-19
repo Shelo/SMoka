@@ -49,6 +49,14 @@ namespace SMokaEngine
 			}
 		}
 
+		public Time Time
+		{
+			get
+			{
+				return application.Time;
+			}
+		}
+
 		protected SubEngine(Application application)
 		{
 			this.application = application;

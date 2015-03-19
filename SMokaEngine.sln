@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMokaEngine", "SMokaEngine\SMokaEngine.csproj", "{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeImage", "ThirdParty\FreeImage\FreeImage.csproj", "{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pencil.Gaming", "ThirdParty\Pencil.Gaming\Pencil.Gaming.csproj", "{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,16 +11,20 @@ Global
 		Release|x86 = Release|x86
 		Debug|x64 = Debug|x64
 		Release|x64 = Release|x64
+		Compatibility-GLFW2|Any CPU = Compatibility-GLFW2|Any CPU
+		Core-GLFW2|Any CPU = Core-GLFW2|Any CPU
+		Compatibility-GLFW3|Any CPU = Compatibility-GLFW3|Any CPU
+		Core-GLFW3|Any CPU = Core-GLFW3|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}.Debug|x64.ActiveCfg = Debug|x64
-		{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}.Debug|x64.Build.0 = Debug|x64
-		{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}.Debug|x86.ActiveCfg = Debug|x86
-		{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}.Debug|x86.Build.0 = Debug|x86
-		{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}.Release|x64.ActiveCfg = Release|x64
-		{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}.Release|x64.Build.0 = Release|x64
-		{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}.Release|x86.ActiveCfg = Release|x86
-		{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}.Release|x86.Build.0 = Release|x86
+		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Compatibility-GLFW2|Any CPU.ActiveCfg = Debug|x86
+		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Compatibility-GLFW2|Any CPU.Build.0 = Debug|x86
+		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Compatibility-GLFW3|Any CPU.ActiveCfg = Debug|x86
+		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Compatibility-GLFW3|Any CPU.Build.0 = Debug|x86
+		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Core-GLFW2|Any CPU.ActiveCfg = Debug|x86
+		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Core-GLFW2|Any CPU.Build.0 = Debug|x86
+		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Core-GLFW3|Any CPU.ActiveCfg = Debug|x86
+		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Core-GLFW3|Any CPU.Build.0 = Debug|x86
 		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Debug|x64.ActiveCfg = Debug|x86
 		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Debug|x64.Build.0 = Debug|x86
 		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Debug|x86.ActiveCfg = Debug|x86
@@ -29,6 +33,22 @@ Global
 		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Release|x64.Build.0 = Release|x86
 		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Release|x86.ActiveCfg = Release|x86
 		{7F74B2F4-B186-46AF-BFB7-28BFCA49EEEE}.Release|x86.Build.0 = Release|x86
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Compatibility-GLFW2|Any CPU.ActiveCfg = Compatibility-GLFW2|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Compatibility-GLFW2|Any CPU.Build.0 = Compatibility-GLFW2|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Compatibility-GLFW3|Any CPU.ActiveCfg = Compatibility-GLFW3|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Compatibility-GLFW3|Any CPU.Build.0 = Compatibility-GLFW3|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Core-GLFW2|Any CPU.ActiveCfg = Core-GLFW2|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Core-GLFW2|Any CPU.Build.0 = Core-GLFW2|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Core-GLFW3|Any CPU.ActiveCfg = Core-GLFW3|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Core-GLFW3|Any CPU.Build.0 = Core-GLFW3|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Debug|x64.ActiveCfg = Compatibility-GLFW2|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Debug|x64.Build.0 = Compatibility-GLFW2|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Debug|x86.ActiveCfg = Compatibility-GLFW2|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Debug|x86.Build.0 = Compatibility-GLFW2|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Release|x64.ActiveCfg = Compatibility-GLFW2|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Release|x64.Build.0 = Compatibility-GLFW2|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Release|x86.ActiveCfg = Compatibility-GLFW2|Any CPU
+		{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}.Release|x86.Build.0 = Compatibility-GLFW2|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
@@ -36,7 +56,7 @@ Global
 		$1.DirectoryNamespaceAssociation = None
 		$1.ResourceNamePolicy = FileFormatDefault
 		$0.TextStylePolicy = $2
-		$2.FileWidth = 100
+		$2.FileWidth = 120
 		$2.TabsToSpaces = False
 		$2.inheritsSet = VisualStudio
 		$2.inheritsScope = text/plain

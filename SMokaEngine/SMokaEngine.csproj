@@ -8,6 +8,7 @@
     <RootNamespace>SMokaEngine</RootNamespace>
     <AssemblyName>SMokaEngine</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <StartupObject>SMokaEngine.MyGame</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,6 +29,11 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <PlatformTarget>x86</PlatformTarget>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="BeforeBuild" command="rm -r Core-GLFW3" workingdir="${ProjectDir}/ThirdParty/Pencil.Gaming/bin/" externalConsole="True" pauseExternalConsole="True" />
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -50,20 +56,20 @@
     <Compile Include="src\core\Core.cs" />
     <Compile Include="src\core\Resources.cs" />
     <Compile Include="src\graphics\Texture.cs" />
+    <Compile Include="src\core\Mesh.cs" />
+    <Compile Include="src\core\Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
     <Folder Include="src\components\" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Tao.OpenGl, Version=2.1.0.12, Culture=neutral, PublicKeyToken=1ca010269a4501ef" />
     <Reference Include="System.Drawing" />
-    <Reference Include="Tao.DevIl, Version=1.6.8.3, Culture=neutral, PublicKeyToken=7ec4053013524957" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ThirdParty\FreeImage\FreeImage.csproj">
-      <Project>{6598A7CD-8F27-4D3F-A675-5AE63113A7C3}</Project>
-      <Name>FreeImage</Name>
+    <ProjectReference Include="..\ThirdParty\Pencil.Gaming\Pencil.Gaming.csproj">
+      <Project>{DDB6DB6D-E5DE-4BDB-8AC8-26DF800E9FF0}</Project>
+      <Name>Pencil.Gaming</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

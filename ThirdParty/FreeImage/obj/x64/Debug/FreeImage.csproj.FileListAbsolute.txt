@@ -1,1 +1,0 @@
-C:\Users\Shelo\Git\smoka-engine\ThirdParty\FreeImage\obj\x64\Debug\FreeImage.csprojResolveAssemblyReference.cache

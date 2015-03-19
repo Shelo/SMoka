@@ -1,4 +1,5 @@
 ﻿using System;
+using Pencil.Gaming;
 
 namespace SMokaEngine
 {
@@ -12,7 +13,7 @@ namespace SMokaEngine
 
         public void Create(float frameTime)
         {
-			this.frameTime = frameTime;
+			this.frameTime = 1.0f / frameTime;
         }
 
 		public void Start()
@@ -31,7 +32,63 @@ namespace SMokaEngine
 
 		private void Run()
 		{
+			double delta = frameTime;
 
+			double currentTime = Glfw.GetTime();
+			double accumulator = 0;
+
+			// this is just to show some statics.
+			int updateFrames = 0;
+			int renderFrames = 0;
+			double accSeconds = 0;
+
+			while (Running)
+			{
+				bool render = false;
+
+				double newTime = Glfw.GetTime();
+				double curFrameTime = newTime - currentTime;
+				currentTime = newTime;
+
+				accumulator += curFrameTime;
+
+				while (accumulator > delta)
+				{
+					render = true;
+
+					Time.Update(delta);
+					Context.Update();
+					Context.Clean();
+
+					if (Display.IsCloseRequested())
+					{
+						Running = false;
+					}
+
+					accumulator -= delta;
+					accSeconds += delta;
+
+					updateFrames++;
+				}
+
+				if (render)
+				{
+					renderFrames++;
+					Renderer.Render();
+					Display.Update();
+				}
+				else
+				{
+					System.Threading.Thread.Sleep(1);
+				}
+
+				if (accSeconds >= 1)
+				{
+					SMokaLog.O(Application.TAG, String.Format("Core update: {0} fps, {1} ups.", renderFrames,
+						updateFrames));
+					accSeconds = renderFrames = updateFrames = 0;
+				}
+			}
 		}
 
 		public override void Stop()

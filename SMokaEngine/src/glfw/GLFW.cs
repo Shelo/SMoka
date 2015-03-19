@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System;
 
-namespace SMokaEngine
+namespace GLFW
 {
     public class GLFW
     {
