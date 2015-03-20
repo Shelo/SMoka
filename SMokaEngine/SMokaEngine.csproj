@@ -56,8 +56,10 @@
     <Compile Include="src\core\Core.cs" />
     <Compile Include="src\core\Resources.cs" />
     <Compile Include="src\graphics\Texture.cs" />
-    <Compile Include="src\core\Mesh.cs" />
     <Compile Include="src\core\Time.cs" />
+    <Compile Include="src\graphics\Quad.cs" />
+    <Compile Include="src\graphics\Mesh.cs" />
+    <Compile Include="src\graphics\Shader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
