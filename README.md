@@ -1,4 +1,4 @@
-# smoka-engine
+# SmokaEngine
 
 SMoka Engine is aimed to a very simple yet powerful project structure. It provides C# API and XML (with C# written extensions).
 
