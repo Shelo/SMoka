@@ -5,13 +5,23 @@ namespace SMokaEngine
 {
 	public class Renderer : SubEngine
 	{
-		public Renderer(Application application) : base(application)
-		{
+		private const string DEFAULT_FRAGMENT_SHADER 	= "res/shaders/pass_through_fragment.glsl";
+		private const string DEFAULT_VERTEX_SHADER 		= "res/shaders/pass_through_vertex.glsl";
 
+		private Shader shader;
+
+		public Renderer(Application application) : base(application)
+		{}
+
+		public void Create()
+		{
+			// create the default shader.
+			shader = new Shader(DEFAULT_VERTEX_SHADER, DEFAULT_FRAGMENT_SHADER);
 		}
 
 		public void Start()
 		{
+
 			// indicate the clear color.
 			GL.ClearColor(0, 0, 0, 1);
 
@@ -31,7 +41,7 @@ namespace SMokaEngine
 
 			foreach (Sprite sprite in Context.SpriteIterator())
 			{
-				sprite.Render();
+				sprite.Render(shader);
 			}
 		}
 

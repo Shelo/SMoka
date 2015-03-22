@@ -14,18 +14,6 @@ namespace SMokaEngine
 			{
 				return transform;
 			}
-
-			set
-			{
-				if (transform == null)
-				{
-					transform = value;
-				}
-				else
-				{
-					throw new SMokaException("Entity's transform is already set.");
-				}
-			}
 		}
 
 		public string Name { get; private set; }
@@ -34,11 +22,32 @@ namespace SMokaEngine
 		public Entity(string name)
 		{
 			Name = name;
+			transform = new Transform(this);
+		}
+
+		public void Create()
+		{
+			Sprite.OnCreate();
+		}
+
+		public void Update()
+		{
+
 		}
 
 		public Entity AddComponent(Component component)
 		{
-			components.Add(component);
+			component.Entity = this;
+
+			if (component is Sprite)
+			{
+				Sprite = component as Sprite;
+			}
+			else
+			{
+				components.Add(component);
+			}
+
 			return this;
 		}
 

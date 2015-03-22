@@ -35,6 +35,7 @@ namespace SMokaEngine
 		public void Start(float frameCap)
 		{
 			Core.Create(frameCap);
+			Renderer.Create();
 
 			Display.Start();
 			Renderer.Start();

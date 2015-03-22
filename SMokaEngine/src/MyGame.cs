@@ -4,17 +4,13 @@ namespace SMokaEngine
 {
 	public class MyGame : Context
 	{
-		Mesh mesh;
-
-		public override void Create()
+		public override void OnCreate()
 		{
 			Entity entity = NewEntity("MyEntity");
 			entity.AddComponent(new Sprite("res/moka.png"));
-
-			mesh = new Mesh(1, 1);
 		}
 
-		public override void Stop()
+		public override void OnStop()
 		{
 
 		}
@@ -34,3 +30,6 @@ namespace SMokaEngine
 		}
 	}
 }
+
+// TODO:
+// - Create the projection matrix.

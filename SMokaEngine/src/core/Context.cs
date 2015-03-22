@@ -28,9 +28,22 @@ namespace SMokaEngine
 			}
 		}
 
+		public void Create()
+		{
+			OnCreate();
+
+			foreach (Entity entity in entities)
+			{
+				entity.Create();
+			}
+		}
+
 		public void Update()
 		{
-
+			foreach (Entity entity in entities)
+			{
+				entity.Update();
+			}
 		}
 
 		public void Clean()
@@ -56,8 +69,8 @@ namespace SMokaEngine
 			}
 		}
 
-        public abstract void Create();
-        public abstract void Stop();
+        public abstract void OnCreate();
+        public abstract void OnStop();
     }
 }
 
