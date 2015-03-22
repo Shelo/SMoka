@@ -7,6 +7,15 @@ namespace SMokaEngine
 	{
 		private List<Component> components = new List<Component>();
 
+		private bool destroyed;
+		public bool Destroyed
+		{
+			get
+			{
+				return destroyed;
+			}
+		}
+
 		private Transform transform;
 		public Transform Transform
 		{
@@ -19,20 +28,58 @@ namespace SMokaEngine
 		public string Name { get; private set; }
 		public Sprite Sprite { get; set; }
 
-		public Entity(string name)
+		private Context context;
+		public Context Context
 		{
+			get
+			{
+				return context;
+			}
+		}
+
+		public Entity(Context context, string name)
+		{
+			this.context = context;
 			Name = name;
+
 			transform = new Transform(this);
 		}
 
 		public void Create()
 		{
-			Sprite.OnCreate();
+			if (HasSprite())
+				if (Sprite.Enabled)
+					Sprite.OnCreate();
+
+			// iterate over the components list in reverse, this allows a component
+			// to add new components while creating.
+			for (int i = components.Count - 1; i >= 0; i--)
+			{
+				if (components[i].Enabled)
+					components[i].OnCreate();
+			}
 		}
 
 		public void Update()
 		{
+			// iterate over the components list in reverse, this allows a component
+			// to add new components in runtime.
+			for (int i = components.Count - 1; i >= 0; i--)
+			{
+				if (components[i].Enabled)
+					components[i].OnUpdate();
+			}
+		}
 
+		public void OnPostUpdate()
+		{
+			// iterate over the components list in reverse, this allows a component
+			// to add new components in runtime.
+			for (int i = components.Count - 1; i >= 0; i--)
+			{
+				if (components[i].Enabled)
+					components[i].OnPostUpdate();
+			}
 		}
 
 		public Entity AddComponent(Component component)
@@ -54,6 +101,11 @@ namespace SMokaEngine
 		public bool HasSprite()
 		{
 			return Sprite != null;
+		}
+
+		public void Destroy()
+		{
+			destroyed = true;
 		}
 	}
 }

@@ -17,11 +17,11 @@ namespace SMokaEngine
 
 		public Matrix GetModelMatrix()
 		{
-			var translation = new Matrix();
-			translation.M11 = position.x;
-			translation.M13 = position.y;
+			var translation = Matrix.Identity;
+			translation.M14 = position.x;
+			translation.M24 = position.y;
 
-			var scale = new Matrix();
+			var scale = Matrix.Identity;
 			scale.M11 = size.x;
 			scale.M22 = size.y;
 			scale.M33 = 1;

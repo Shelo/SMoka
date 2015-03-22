@@ -27,6 +27,27 @@ namespace SMokaEngine
 			}
 		}
 
+		public Context Context
+		{
+			get
+			{
+				return entity.Context;
+			}
+		}
+
+		public Application Application
+		{
+			get
+			{
+				return Entity.Context.App;
+			}
+		}
+
+		public Component()
+		{
+			Enabled = true;
+		}
+
 		public Transform Transform
 		{
 			get

@@ -32,28 +32,34 @@ namespace SMokaEngine
 		{
 			OnCreate();
 
-			foreach (Entity entity in entities)
+			for (int i = entities.Count - 1; i >= 0; i--)
 			{
-				entity.Create();
+				entities[i].Create();
 			}
 		}
 
 		public void Update()
 		{
-			foreach (Entity entity in entities)
+			for (int i = entities.Count - 1; i >= 0; i--)
 			{
-				entity.Update();
+				entities[i].Update();
 			}
 		}
 
 		public void Clean()
 		{
-
+			for (int i = entities.Count - 1; i >= 0; i--)
+			{
+				if (entities[i].Destroyed)
+				{
+					entities.RemoveAt(i);
+				}
+			}
 		}
 
 		public Entity NewEntity(string name)
 		{
-			var entity = new Entity(name);
+			var entity = new Entity(this, name);
 			entities.Add(entity);
 			return entity;
 		}

@@ -108,7 +108,7 @@ namespace SMokaEngine
 
 		public void SetUniform(string name, Matrix matrix)
 		{
-			GL.UniformMatrix4(GetUniformLocation(name), false, ref matrix);
+			GL.UniformMatrix4(GetUniformLocation(name), true, ref matrix);
 		}
 
 		private uint CreateShader(string filePath, ShaderType type)

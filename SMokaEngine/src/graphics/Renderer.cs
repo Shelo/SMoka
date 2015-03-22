@@ -10,6 +10,23 @@ namespace SMokaEngine
 
 		private Shader shader;
 
+		private Camera mainCamera;
+		public Camera MainCamera
+		{
+			get
+			{
+				return mainCamera;
+			}
+
+			set
+			{
+				if (value == null)
+					throw new SMokaException("MainCamera value cannot be null.");
+
+				mainCamera = value;
+			}
+		}
+
 		public Renderer(Application application) : base(application)
 		{}
 
@@ -33,15 +50,25 @@ namespace SMokaEngine
 			// enable alpha blending.
 			GL.Enable(EnableCap.Blend);
 			GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);
+
+			// if the user didn't set a custom projection, this will provide one.
+			if (mainCamera == null)
+			{
+				mainCamera = new Camera(Display.Width, Display.Height);
+			}
 		}
 
 		public void Render()
 		{
 			Clear();
 
+			shader.Bind();
+			shader.SetUniform("u_projectedView", mainCamera.Projection);
+
 			foreach (Sprite sprite in Context.SpriteIterator())
 			{
-				sprite.Render(shader);
+				if (sprite.Enabled)
+					sprite.Render(shader);
 			}
 		}
 

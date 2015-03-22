@@ -11,7 +11,8 @@ namespace SMokaEngine
 
 		GlfwWindowPtr window;
 
-		public Display(Application application) : base(application) {}
+		public Display(Application application) : base(application)
+		{}
 
 		public void Create(string title, int width, int height)
 		{

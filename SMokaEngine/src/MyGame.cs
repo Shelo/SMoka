@@ -8,6 +8,8 @@ namespace SMokaEngine
 		{
 			Entity entity = NewEntity("MyEntity");
 			entity.AddComponent(new Sprite("res/moka.png"));
+			entity.Transform.size = new Vector2(50, 50);
+			entity.Transform.position = new Vector2(100, 100);
 		}
 
 		public override void OnStop()

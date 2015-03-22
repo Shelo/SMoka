@@ -24,6 +24,11 @@ namespace SMokaEngine
 			b = SMath.Clamp(b, 0, 1);
 			a = SMath.Clamp(a, 0, 1);
 		}
+
+		public override string ToString()
+		{
+			return string.Format("({0}, {1}, {2}, {3})", r, g, b, a);
+		}
 	}
 }
 

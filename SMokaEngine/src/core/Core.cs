@@ -9,19 +9,23 @@ namespace SMokaEngine
         
 		float frameTime;
 
-		public Core(Application application) : base(application) {}
+		public Core(Application application) : base(application)
+		{}
 
         public void Create(float frameTime)
         {
 			this.frameTime = 1.0f / frameTime;
+			Context.Create();
         }
 
+		/// <summary>
+		/// Start the core of the engine.
+		/// </summary>
 		public void Start()
 		{
 			if (!Running)
 			{
 				Running = true;
-				Context.Create();
 				Glfw.SetTime(0.0);
 				Run();
 			}
@@ -61,10 +65,7 @@ namespace SMokaEngine
 					Context.Update();
 					Context.Clean();
 
-					if (Display.IsCloseRequested())
-					{
-						Running = false;
-					}
+					Running &= !Display.IsCloseRequested();
 
 					accumulator -= delta;
 					accSeconds += delta;

@@ -31,7 +31,7 @@ namespace SMokaEngine
 				ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
 			GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, Width, Height, 0,
-				Pencil.Gaming.Graphics.PixelFormat.Rgba, PixelType.UnsignedByte, data.Scan0);
+				Pencil.Gaming.Graphics.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
 
 			bitmap.UnlockBits(data);
 		}
