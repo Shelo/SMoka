@@ -8,7 +8,7 @@ namespace SMokaEngine
 
 		public override void Create()
 		{
-			Entity entity = newEntity("MyEntity");
+			Entity entity = NewEntity("MyEntity");
 			entity.AddComponent(new Sprite("res/moka.png"));
 
 			mesh = new Mesh(1, 1);

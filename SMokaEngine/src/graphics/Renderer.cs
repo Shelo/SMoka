@@ -27,6 +27,16 @@ namespace SMokaEngine
 
 		public void Render()
 		{
+			Clear();
+
+			foreach (Sprite sprite in Context.SpriteIterator())
+			{
+				sprite.Render();
+			}
+		}
+
+		private void Clear()
+		{
 			GL.Clear(ClearBufferMask.ColorBufferBit);
 		}
 

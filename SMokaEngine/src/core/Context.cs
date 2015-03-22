@@ -38,11 +38,22 @@ namespace SMokaEngine
 
 		}
 
-		public Entity newEntity(string name)
+		public Entity NewEntity(string name)
 		{
 			var entity = new Entity(name);
 			entities.Add(entity);
 			return entity;
+		}
+
+		public IEnumerable<Sprite> SpriteIterator()
+		{
+			foreach (Entity entity in entities)
+			{
+				if (entity.HasSprite())
+				{
+					yield return entity.Sprite;
+				}
+			}
 		}
 
         public abstract void Create();

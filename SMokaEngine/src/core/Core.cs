@@ -22,6 +22,7 @@ namespace SMokaEngine
 			{
 				Running = true;
 				Context.Create();
+				Glfw.SetTime(0.0);
 				Run();
 			}
 			else

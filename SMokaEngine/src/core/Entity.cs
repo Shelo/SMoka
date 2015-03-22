@@ -29,6 +29,7 @@ namespace SMokaEngine
 		}
 
 		public string Name { get; private set; }
+		public Sprite Sprite { get; set; }
 
 		public Entity(string name)
 		{
@@ -39,6 +40,11 @@ namespace SMokaEngine
 		{
 			components.Add(component);
 			return this;
+		}
+
+		public bool HasSprite()
+		{
+			return Sprite != null;
 		}
 	}
 }
