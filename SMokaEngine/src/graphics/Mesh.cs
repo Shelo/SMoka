@@ -9,7 +9,7 @@ namespace SMokaEngine
 		private int vbo;
 		private int ibo;
 
-		public Mesh(float texCoordX, float texCoordY)
+		protected void Create(float[] vertices, int[] indices)
 		{
 			// create the vertex array for this mesh.
 			vao = GL.GenVertexArray();
@@ -19,18 +19,6 @@ namespace SMokaEngine
 			vbo = GL.GenBuffer();
 			ibo = GL.GenBuffer();
 
-			var vertices = new float[]
-			{
-					-.5f, -.5f, 0, 0, texCoordY,
-					-.5f, 0.5f, 0, 0, 0,
-					0.5f, 0.5f, 0, texCoordX, 0,
-					0.5f, -.5f, 0, texCoordX, texCoordY
-			};
-
-			var indices = new int[]
-			{
-				0, 1, 2, 0, 2, 3
-			};
 
 			// Using Vertex Buffer.
 			GL.BindBuffer(BufferTarget.ArrayBuffer, vbo);
