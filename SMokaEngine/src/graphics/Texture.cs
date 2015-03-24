@@ -22,14 +22,18 @@ namespace SMokaEngine
 			GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter,
 				(int) TextureMagFilter.Nearest);
 
+			// create the bitmap from whee we'll read the pixel bits.
 			var bitmap = new Bitmap(filePath);
 
+			// save dimensions.
 			Width = bitmap.Width;
 			Height = bitmap.Height;
 
+			// capture data from the bitmap.
 			var data = bitmap.LockBits(new Rectangle(0, 0, Width, Height), 
 				ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
+			// send bitmap data to OpenGL.
 			GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, Width, Height, 0,
 				Pencil.Gaming.Graphics.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
 

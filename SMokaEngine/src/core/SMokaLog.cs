@@ -31,6 +31,11 @@ namespace SMokaEngine
 		{
 			Console.WriteLine(String.Format(LOG_TEMPLATE, tag, message));
 		}
+
+		public static void E(string tag, string message)
+		{
+			// TODO: write message to error log.
+		}
 	}
 }
 
