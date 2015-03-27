@@ -50,12 +50,12 @@ namespace SMokaEngine
 			return color.Clamp();
 		}
 
-		public static Color operator ==(Color t, Color o)
+		public static bool operator ==(Color t, Color o)
 		{
 			return t.r == o.r && t.g == o.g && t.b == o.b && t.a == o.a;
 		}
 
-		public static Color operator !=(Color t, Color o)
+		public static bool operator !=(Color t, Color o)
 		{
 			return t.r != o.r || t.g != o.g || t.b != o.b || t.a != o.a;
 		}

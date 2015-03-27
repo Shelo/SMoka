@@ -64,6 +64,7 @@ namespace SMokaEngine
 					Time.Update(delta);
 					Context.Update();
 					Context.Clean();
+					Input.Update();
 
 					Running &= !Display.IsCloseRequested();
 

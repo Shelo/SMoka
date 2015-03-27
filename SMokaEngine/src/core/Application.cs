@@ -10,6 +10,7 @@ namespace SMokaEngine
 		public Renderer Renderer { get; private set; }
         public Context Context { get; private set; }
 		public Display Display { get; private set; }
+		public Input Input { get; private set; }
 		public Core Core { get; private set; }
 		public Time Time { get; private set; }
 
@@ -25,11 +26,13 @@ namespace SMokaEngine
 			Renderer = new Renderer(this);
 			Core = new Core(this);
 			Time = new Time();
+			Input = new Input(this);
 		}
 
 		public void SetDisplay(string title, int width, int height)
 		{
 			Display.Create(title, width, height);
+			Input.Create();
 		}
 
 		public void Start(float frameCap)

@@ -10,6 +10,13 @@ namespace SMokaEngine
 		public int Height { get; private set; }
 
 		GlfwWindowPtr window;
+		public GlfwWindowPtr Window
+		{
+			get
+			{
+				return window;
+			}
+		}
 
 		public Display(Application application) : base(application)
 		{}

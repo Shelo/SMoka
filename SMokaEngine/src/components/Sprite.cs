@@ -20,6 +20,11 @@ namespace SMokaEngine
 			mesh = new Quad(1, 1);
 		}
 
+		public override void OnUpdate()
+		{
+			Console.WriteLine(Application.Input.GetKey(Pencil.Gaming.Key.A));
+		}
+
 		public void Render(Shader shader)
 		{
 			Texture.Bind();

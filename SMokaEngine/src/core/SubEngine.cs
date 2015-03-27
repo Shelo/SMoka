@@ -57,6 +57,14 @@ namespace SMokaEngine
 			}
 		}
 
+		public Input Input
+		{
+			get
+			{
+				return application.Input;
+			}
+		}
+
 		protected SubEngine(Application application)
 		{
 			this.application = application;

@@ -61,6 +61,7 @@
     <Compile Include="src\graphics\Color.cs" />
     <Compile Include="src\math\SMath.cs" />
     <Compile Include="src\components\Camera.cs" />
+    <Compile Include="src\core\Input.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />

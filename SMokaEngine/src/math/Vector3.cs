@@ -4,9 +4,9 @@ namespace SMokaEngine
 {
     public struct Vector3
     {
-        float x;
-        float y;
-        float z;
+        public float x;
+		public float y;
+		public float z;
 
         public Vector3(float x, float y, float z)
         {
