@@ -8,7 +8,7 @@ namespace SMokaEngine
 {
 	public class Shader
 	{
-		private Dictionary<String, int> uniformLocations;
+		private Dictionary<string, int> uniformLocations;
 		private uint program;
 		private uint fragment;
 		private uint vertex;
@@ -99,6 +99,26 @@ namespace SMokaEngine
 		public void SetUniform(string name, float a, float b)
 		{
 			GL.Uniform2(GetUniformLocation(name), a, b);
+		}
+
+		public void SetUniform(string name, float a, float b, float c)
+		{
+			GL.Uniform3(GetUniformLocation(name), a, b, c);
+		}
+
+		public void SetUniform(string name, float a, float b, float c, float d)
+		{
+			GL.Uniform4(GetUniformLocation(name), a, b, c, d);
+		}
+
+		public void SetUniform(string name, Vector2 v)
+		{
+			GL.Uniform2(GetUniformLocation(name), v.x, v.y);
+		}
+
+		public void SetUniform(string name, Vector3 v)
+		{
+			GL.Uniform3(GetUniformLocation(name), v.x, v.y, v.z);
 		}
 
 		public void SetUniform(string name, Color color)
