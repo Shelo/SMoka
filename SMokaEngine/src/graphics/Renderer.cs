@@ -63,7 +63,7 @@ namespace SMokaEngine
 			Clear();
 
 			shader.Bind();
-			shader.SetUniform("u_projectedView", mainCamera.Projection);
+			shader.SetUniform("u_projectedView", mainCamera.ProjectedView);
 
 			foreach (Sprite sprite in Context.SpriteIterator())
 			{

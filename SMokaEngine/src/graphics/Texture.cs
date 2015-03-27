@@ -7,9 +7,10 @@ namespace SMokaEngine
 {
 	public class Texture
 	{
-		private int id;
 		public int Width { get; private set; }
 		public int Height { get; private set; }
+
+		int id;
 
 		public Texture(String filePath)
 		{

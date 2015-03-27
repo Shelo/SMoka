@@ -56,7 +56,7 @@ namespace SMokaEngine
 		public void Update(Sprite sprite)
 		{
 			// get transform model matrix.
-			Matrix model = sprite.Transform.GetModelMatrix();
+			Matrix model = sprite.Transform.ModelMatrix;
 
 			// set uniform for that model matrix.
 			SetUniform("u_model", model);

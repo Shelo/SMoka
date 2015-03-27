@@ -10,6 +10,14 @@ namespace SMokaEngine
 
 		public Matrix Projection { get; private set; }
 
+		public Matrix ProjectedView
+		{
+			get
+			{
+				return Projection;
+			}
+		}
+
 		public Camera()
 		{
 			var projection = new Matrix();
@@ -62,6 +70,8 @@ namespace SMokaEngine
 			projection.M44 = 1;
 
 			Projection = projection;
+
+			Console.WriteLine(projection);
 		}
 
 		public void SetAsMain()

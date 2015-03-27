@@ -39,7 +39,6 @@
   <ItemGroup>
     <Compile Include="src\math\Vector2.cs" />
     <Compile Include="src\math\Vector3.cs" />
-    <Compile Include="src\glfw\GLFW.cs" />
     <Compile Include="src\graphics\Display.cs" />
     <Compile Include="src\graphics\Renderer.cs" />
     <Compile Include="src\core\Application.cs" />
