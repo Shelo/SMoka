@@ -8,9 +8,30 @@ namespace SMokaEngine
 		private const int MOUSE_COUNT 	= 5;
 		private const int KEY_COUNT		= 348;
 
-		public Vector2 CursorPosition { get; private set; }
 		private bool[] activeMouse;
 		private bool[] activeKeys;
+
+		private Vector2 cursorPosition;
+		public Vector2 CursorPosition
+		{
+			get
+			{
+				double cursorX = 0;
+				double cursorY = 0;
+				Glfw.GetCursorPos(Display.Window, out cursorX, out cursorY);
+
+				cursorPosition.x = (float) cursorX;
+				cursorPosition.y = (float) (Display.Height - cursorY);
+
+				return cursorPosition;
+			}
+
+			private set
+			{
+				cursorPosition = value;
+			}
+		}
+
 
 		public Input(Application applcation) : base(applcation)
 		{}
@@ -34,6 +55,7 @@ namespace SMokaEngine
 			}
 		}
 
+
 		public bool GetKey(Key key)
 		{
 			return Glfw.GetKey(Display.Window, key);
@@ -41,28 +63,30 @@ namespace SMokaEngine
 
 		public bool GetKeyDown(Key key)
 		{
-			return GetKey(key) && !activeKeys[key];
+			return GetKey(key) && !activeKeys[(int) key];
 		}
 
 		public bool GetKeyUp(Key key)
 		{
-			return !GetKey(key) && activeKeys[key];
+			return !GetKey(key) && activeKeys[(int) key];
 		}
+
 
 		public bool GetMouse(MouseButton button)
 		{
 			return Glfw.GetMouseButton(Display.Window, button);
 		}
 
-		public bool GetKeyDown(MouseButton button)
+		public bool GetMouseDown(MouseButton button)
 		{
-			return GetMouse(button) && !activeKeys[button];
+			return GetMouse(button) && !activeKeys[(int) button];
 		}
 
-		public bool GetKeyUp(MouseButton button)
+		public bool GetMouseUp(MouseButton button)
 		{
-			return !GetMouse(button) && activeKeys[button];
+			return !GetMouse(button) && activeKeys[(int) button];
 		}
+
 
 		public override void Stop()
 		{
