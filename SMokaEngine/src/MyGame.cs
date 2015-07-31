@@ -11,13 +11,24 @@ namespace SMokaEngine
 			entity.Transform.size = new Vector2(50, 50);
 			entity.Transform.position = new Vector2(100, 100);
 
-			entity.AddComponent(new SimpleLogger());
+			SimpleLogger simpleLogger = new SimpleLogger();
+			simpleLogger.AddDelegate(new SimpleLogger.Logger(LogMouseCoords));
+
+			entity.AddComponent(simpleLogger);
 		}
 
 		public override void OnStop()
 		{
 
 		}
+
+
+		/** Loggers **/
+		public void LogMouseCoords(Entity entity)
+		{
+			Console.WriteLine(App.Input.CursorPosition);
+		}
+
 
 		static int Main(string[] args)
 		{
